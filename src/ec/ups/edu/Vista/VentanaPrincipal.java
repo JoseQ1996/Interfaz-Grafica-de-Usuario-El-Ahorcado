@@ -14,7 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
- *
+ * Ventana que controla todo el programa 
+ * 
  * @author José Quinde
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
