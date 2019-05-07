@@ -11,5 +11,10 @@ package ec.ups.edu.Palabras;
  * @author José Quinde
  */
 public class Palabras {
-    String[] nombres = new String[4];
+
+    
+ 
+   
+    
+    
 }
