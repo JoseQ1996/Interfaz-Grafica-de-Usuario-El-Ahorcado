@@ -22,7 +22,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipal
      */
-    String[] palabra = {"Futbol","Computacion","Perro","Celular","Navidad","Alemania","Paris","Fresa","Salsa","Cocina"};
     ImageIcon primera=new ImageIcon(getClass().getResource("/ec/ups/edu/Imagenes/primera.PNG"));
     ImageIcon segunda=new ImageIcon(getClass().getResource("/ec/ups/edu/Imagenes/segunda.PNG"));
     ImageIcon tercera=new ImageIcon(getClass().getResource("/ec/ups/edu/Imagenes/tercera.PNG"));
@@ -33,16 +32,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     int opcion=0;
     int cont=0;
     int l=0;
-    
+    /**
+     * Constructor que inicializa los objetos
+     */
     public VentanaPrincipal() {
         initComponents();
         cont=1;
-        
         Icon icono = new ImageIcon(primera.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT)); 
         jLabel1.setIcon(icono);
         //genera un numero entre 1 y 10 y lo guarda en la variable numeroAleatorio
-        //int numeroAleatorio = 1+generadorAleatorios.nextInt(10);
-        int numeroAleatorio=2;
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(10);
+        //Compara un switch para escojer palabra con el numero randomico generado del 1 al 10
         switch(numeroAleatorio){
             case 1:
                jLabel3.setText("Deporte");
@@ -51,32 +51,48 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 break;
             case 2:
                 jLabel3.setText("Carrera Universitaria");
-               LabelPalabra.setText("-o-------o-");
-               opcion=2;
+                LabelPalabra.setText("-o-------o-");
+                opcion=2;
                 break;
             case 3:
-                
+                jLabel3.setText("Animal");
+                LabelPalabra.setText("-e---");
+                opcion=3;
                 break;
             case 4:
-                
+                jLabel3.setText("Para Contartarse");
+                LabelPalabra.setText("--l-l--");
+                opcion=4;
                 break;
             case 5:
-               
+                jLabel3.setText("Fiesta de todo el mundo");
+                LabelPalabra.setText("----d-d");
+                opcion=5;
                 break;
             case 6:
-                
+                jLabel3.setText("Pais Europeo");
+                LabelPalabra.setText("a---a--a");
+                opcion=6;
                 break;
             case 7:
-                
+                jLabel3.setText("Capital de la moda");
+                LabelPalabra.setText("-a---");
+                opcion=7;
                 break;
             case 8:
-                
+                jLabel3.setText("Fruta");
+                LabelPalabra.setText("---s-");
+                opcion=8;
                 break;
             case 9:
-                
+                jLabel3.setText("Tipo de musica");
+                LabelPalabra.setText("s--s-");
+                opcion=9;
                 break;    
             case 10:
-               
+               jLabel3.setText("Lugar de la casa");
+                LabelPalabra.setText("-o----");
+                opcion=10;
                 break;    
         }
     }
@@ -112,6 +128,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                       break;
                   case 6:
                       JOptionPane.showMessageDialog(this, "Ha perdido","GAME-OVER",JOptionPane.OK_OPTION);
+                      new VentanaPrincipal().setVisible(true);
               }
               
     }
@@ -130,7 +147,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * Metodo para jugar con la palabra futbol, compara la letra ingresada con cada letra hasta que gane o pierda
      */
     public void palabra1(){
-            String letra=txtIngreso.getText();                         
+                        String letra=txtIngreso.getText();                         
                         if(letra.equals("f")){        
                         String cadena=LabelPalabra.getText();
                         StringBuilder remplazo=new StringBuilder(cadena);
@@ -180,6 +197,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                       else{
                            pierde();
                            cont++;
+                           txtIngreso.setText("");
 
                       }
                         if(l==5){
@@ -191,7 +209,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * Metodo para jugar con la palabra computacion, compara la letra ingresada con cada letra hasta que gane o pierda
      */
     public void palabra2(){
-        String letra=txtIngreso.getText();                          
+                        String letra=txtIngreso.getText();                          
                         if(letra.equals("c")){        
                         String cadena=LabelPalabra.getText();
                         StringBuilder remplazo=new StringBuilder(cadena);
@@ -269,6 +287,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                       else{
                            pierde();
                            cont++;
+                           txtIngreso.setText("");
 
                       }
                         if(l==8){
@@ -276,7 +295,437 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             cont=1;
                         }
     }
+    /**
+     * Metodo para jugar con la palabra perro, compara la letra ingresada con cada letra hasta que gane o pierda
+     */
+   public void palabra3(){
+                        String letra=txtIngreso.getText();                         
+                        if(letra.equals("p")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(0, 'p');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);         
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("r")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(2, 'r');
+                        remplazo.setCharAt(3, 'r');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("o")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(4, 'o');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                      else{
+                           pierde();
+                           cont++;
+                           txtIngreso.setText("");
 
+                      }
+                        if(l==3){
+                            gana();
+                            cont=1;
+                        } 
+   }
+   /**
+     * Metodo para jugar con la palabra celular, compara la letra ingresada con cada letra hasta que gane o pierda
+     */
+   public void palabra4(){
+                        String letra=txtIngreso.getText();                         
+                        if(letra.equals("c")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(0, 'c');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);         
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("e")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(1, 'e');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("u")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(2, 'u');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                        else if(letra.equals("a")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(4, 'a');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                         else if(letra.equals("r")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(5, 'r');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                      else{
+                           pierde();
+                           cont++;
+                           txtIngreso.setText("");
+
+                      }
+                        if(l==5){
+                            gana();
+                            cont=1;
+                        } 
+   }
+   /**
+     * Metodo para jugar con la palabra navidad, compara la letra ingresada con cada letra hasta que gane o pierda
+     */
+   public void palabra5(){
+                    String letra=txtIngreso.getText();                         
+                        if(letra.equals("n")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(0, 'n');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);         
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("a")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(1, 'a');
+                        remplazo.setCharAt(5, 'a');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("v")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(2, 'v');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                        else if(letra.equals("i")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(3, 'i');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                      
+                      else{
+                           pierde();
+                           cont++;
+                           txtIngreso.setText("");
+
+                      }
+                        if(l==4){
+                            gana();
+                            cont=1;
+                        } 
+   }
+   /**
+     * Metodo para jugar con la palabra alemania, compara la letra ingresada con cada letra hasta que gane o pierda
+     */
+   public void palabra6(){
+          String letra=txtIngreso.getText();                         
+                        if(letra.equals("l")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(1, 'l');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);         
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("e")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(2, 'e');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("m")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(3, 'm');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                        else if(letra.equals("n")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(5, 'n');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                       else if(letra.equals("i")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(6, 'i');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                      else{
+                           pierde();
+                           cont++;
+
+                      }
+                        if(l==5){
+                            gana();
+                            cont=1;
+                        } 
+   }
+   /**
+     * Metodo para jugar con la palabra paris, compara la letra ingresada con cada letra hasta que gane o pierda
+     */
+   public void palabra7(){
+          String letra=txtIngreso.getText();                         
+                        if(letra.equals("p")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(0, 'p');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);         
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("r")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(2, 'r');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("i")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(3, 'i');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                        else if(letra.equals("s")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(4, 's');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                      
+                      else{
+                           pierde();
+                           cont++;
+                           txtIngreso.setText("");
+
+                      }
+                        if(l==4){
+                            gana();
+                            cont=1;
+                        } 
+   }
+   /**
+     * Metodo para jugar con la palabra fresa, compara la letra ingresada con cada letra hasta que gane o pierda
+     */
+   public void palabra8(){
+          String letra=txtIngreso.getText();                         
+                        if(letra.equals("f")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(0, 'f');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);         
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("r")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(1, 'r');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("e")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(2, 'e');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                        else if(letra.equals("a")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(4, 'a');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                      
+                      else{
+                           pierde();
+                           cont++;
+                           txtIngreso.setText("");
+
+                      }
+                        if(l==4){
+                            gana();
+                            cont=1;
+                        } 
+   }
+   /**
+     * Metodo para jugar con la palabra salsa, compara la letra ingresada con cada letra hasta que gane o pierda
+     */
+   public void palabra9(){
+       String letra=txtIngreso.getText();                         
+                        if(letra.equals("a")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(1, 'a');
+                        remplazo.setCharAt(4, 'a');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);         
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("l")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(2, 'l');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                      
+                      else{
+                           pierde();
+                           cont++;
+                           txtIngreso.setText("");
+
+                      }
+                        if(l==2){
+                            gana();
+                            cont=1;
+                        } 
+    }
+   /**
+     * Metodo para jugar con la palabra cocina, compara la letra ingresada con cada letra hasta que gane o pierda
+     */
+   public void palabra10(){
+          String letra=txtIngreso.getText();                         
+                        if(letra.equals("c")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(0, 'c');
+                        remplazo.setCharAt(2, 'c');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);         
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("i")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(3, 'i'); 
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                      }
+                        else if(letra.equals("n")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(4, 'n');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                        else if(letra.equals("a")){        
+                        String cadena=LabelPalabra.getText();
+                        StringBuilder remplazo=new StringBuilder(cadena);
+                        remplazo.setCharAt(5, 'a');
+                        cadena=remplazo.toString();
+                        LabelPalabra.setText(cadena);
+                        l++;
+                        txtIngreso.setText("");
+                        
+                      } 
+                      
+                      else{
+                           pierde();
+                           cont++;
+                           txtIngreso.setText("");
+
+                      }
+                        if(l==4){
+                            gana();
+                            cont=1;
+                        } 
+   }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -374,11 +823,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
+        //Aqui se ejecuta dependiendo la palabra escojida, cada palabra tiene un numero asignado
         if (opcion==1){
              palabra1();                 
             }
         if (opcion==2){
              palabra2();                 
+            }
+        if (opcion==3){
+             palabra3();                 
+            }
+        if (opcion==4){
+             palabra4();                 
+            }
+        if (opcion==5){
+             palabra5();                 
+            }
+        if (opcion==6){
+             palabra6();                 
+            }
+        if (opcion==7){
+             palabra7();                 
+            }
+        if (opcion==8){
+             palabra8();                 
+            }
+        if (opcion==9){
+             palabra9();                 
+            }
+        if (opcion==10){
+             palabra10();                 
             }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
